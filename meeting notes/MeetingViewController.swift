@@ -13,7 +13,7 @@ class MeetingViewController: UIViewController {
     
     fileprivate lazy var containerView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         view.layer.cornerRadius = 8
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.lightGray.cgColor
@@ -22,6 +22,7 @@ class MeetingViewController: UIViewController {
     }()
     fileprivate lazy var textView: UITextView = {
         var view = UITextView(frame: .zero)
+        view.backgroundColor = .white
         view.textColor = .label
         view.isEditable = false
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +93,7 @@ extension MeetingViewController: ViewConfiguration {
 extension MeetingViewController: MeetingViewModelDelegate {
     func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel) {
         DispatchQueue.main.async {
-            self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString            
+            self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString
         }
     }
 }

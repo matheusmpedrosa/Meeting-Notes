@@ -60,7 +60,7 @@ class MeetingListItemTableViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
-    func setUpCell(title: String, description: String, accessoryLabelIsHidden: Bool) {
+    func setUpCell(title: String?, description: String?, accessoryLabelIsHidden: Bool) {
         titleLabel.text = title
         titleLabel.accessibilityLabel = title
         descriptionLabel.text = description

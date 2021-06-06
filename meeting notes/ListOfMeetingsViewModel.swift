@@ -40,4 +40,31 @@ class ListOfMeetingsViewModel {
         }
     }
     
+    func getMeetingDate(from startDate: String?, to endDate: String?) -> String? {
+        guard let startDate = formatStartDate(startDate), let endDate = formatEndDate(endDate) else {
+            return nil
+        }
+        return startDate + endDate
+    }
+    
+    // MARK: - Private Methods
+    
+    fileprivate func formatStartDate(_ date: String?) -> String? {
+        let startDateFormatter = DateFormatter()
+        startDateFormatter.dateFormat = K.DateFormatter.backEnd
+        startDateFormatter.locale = Locale(identifier: K.Locale.us)
+        guard let date = startDateFormatter.date(from: date ?? "") else { return nil }
+        startDateFormatter.dateFormat = K.DateFormatter.startDate
+        return startDateFormatter.string(from: date)
+    }
+    
+    fileprivate func formatEndDate(_ date: String?) -> String? {
+        let endDateFormatter = DateFormatter()
+        endDateFormatter.dateFormat = K.DateFormatter.backEnd
+        endDateFormatter.locale = Locale(identifier: K.Locale.us)
+        guard let date = endDateFormatter.date(from: date ?? "") else { return nil }
+        endDateFormatter.dateFormat = K.DateFormatter.endDate
+        return endDateFormatter.string(from: date)
+    }
+    
 }

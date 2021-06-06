@@ -10,6 +10,16 @@ import UIKit
 
 struct K {
     
+    struct Locale {
+        static let us = "en_US"
+    }
+    
+    struct DateFormatter {
+        static let backEnd = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        static let startDate = "EEEE, MMM d, h:mm a"
+        static let endDate = " - h:mm a"
+    }
+    
     struct Constraint {
         static let top: CGFloat = 16
         static let leading: CGFloat = 16
