@@ -41,10 +41,10 @@ final class ListOfMeetingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDelegate = self
         configureView()
-        setUpUI()
+        viewModel.viewDelegate = self
         viewModel.fechListOfMeetings()
+        setUpUI()
     }
     
     // MARK: - Private Methods

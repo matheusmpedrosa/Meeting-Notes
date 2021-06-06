@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol MeetingViewModelDelegate: AnyObject {
+    func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel)
+}
+
 class MeetingViewModel {
     
     // MARK: - Properties
@@ -14,6 +18,7 @@ class MeetingViewModel {
     fileprivate var meetingId: String!
     fileprivate var service: Service?
     private(set) var meetingModel: MeetingModel? = nil
+    weak var viewDelegate: MeetingViewModelDelegate?
     
     // MARK: - Initializer
     
@@ -26,9 +31,11 @@ class MeetingViewModel {
     
     func fetchMeeting() {
         service?.fetchSelectedMeeting(meetingId: meetingId, completion: { [weak self] (response) in
+            guard let self = self else { return }
             switch response {
             case .success(let meetingModel):
-                self?.meetingModel = meetingModel
+                self.meetingModel = meetingModel
+                self.viewDelegate?.meetingViewModelDelegateDidFetchMeeting(self)
             case .failure(_):
                 NSLog("%@", #function)
             }
