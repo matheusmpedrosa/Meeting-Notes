@@ -16,7 +16,7 @@ class ListOfMeetingsViewModel {
     // MARK: - Properties
     
     private(set) var listOfMeetings: [ListOfMeetingsModel]? = []
-    fileprivate var service: Service!
+    private(set) var service: Service!
     weak var viewDelegate: ListOfMeetingsViewModelDelegate?
     
     // MARK: - Initializer

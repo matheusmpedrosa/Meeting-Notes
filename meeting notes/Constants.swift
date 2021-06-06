@@ -10,9 +10,11 @@ import UIKit
 
 struct K {
     
-    struct EmptyState {
-        static let identifier: String = "EmptyStateCell"
-        static let title: String = "You have no meetings"
+    struct Constraint {
+        static let top: CGFloat = 16
+        static let leading: CGFloat = 16
+        static let trailing: CGFloat = -16
+        static let bottom: CGFloat = -16
     }
     
     struct Title {

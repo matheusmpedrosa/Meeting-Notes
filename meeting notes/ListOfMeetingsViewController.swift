@@ -20,7 +20,6 @@ final class ListOfMeetingsViewController: UIViewController {
         tableView.alwaysBounceVertical = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MeetingListItemTableViewCell.self, forCellReuseIdentifier: String(describing: MeetingListItemTableViewCell.self))
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: K.EmptyState.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -63,33 +62,17 @@ final class ListOfMeetingsViewController: UIViewController {
 
 extension ListOfMeetingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let numberOfMeetings = viewModel.listOfMeetings?.count, numberOfMeetings > 0 else {
-            return 1
-        }
-        return numberOfMeetings
+        return viewModel.listOfMeetings?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let numberOfMeetings = viewModel.listOfMeetings?.count, numberOfMeetings > 0 else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.EmptyState.identifier, for: indexPath)
-            cell.selectionStyle = .none
-            cell.textLabel?.text = K.EmptyState.title
-            return cell
-        }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MeetingListItemTableViewCell.self),
                                                  for: indexPath) as? MeetingListItemTableViewCell
-        DispatchQueue.main.async {
             cell?.configureView()
-            cell?.setUpCell(title: self.viewModel.listOfMeetings?[indexPath.row].title ?? "",
-                            description: self.viewModel.listOfMeetings?[indexPath.row].endAt ?? "",
+            cell?.setUpCell(title: viewModel.listOfMeetings?[indexPath.row].title ?? "",
+                            description: viewModel.listOfMeetings?[indexPath.row].endAt ?? "",
                             accessoryLabelIsHidden: false)
-        }
         return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
     }
 }
 
@@ -98,6 +81,10 @@ extension ListOfMeetingsViewController: UITableViewDataSource {
 extension ListOfMeetingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let meetingId: String = viewModel.listOfMeetings?[indexPath.row].id ?? ""
+        let meetingViewModel: MeetingViewModel = MeetingViewModel(meetingId: meetingId, service: viewModel.service)
+        let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel)
+        navigationController?.pushViewController(meetingViewController, animated: true)
     }
 }
 

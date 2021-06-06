@@ -28,6 +28,8 @@ class MeetingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchMeeting()
+        title = viewModel.meetingModel?.title
     }
 
 }
