@@ -21,6 +21,8 @@
 		80273851266C2ED500BA4AD5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273850266C2ED500BA4AD5 /* Request.swift */; };
 		80273855266C377300BA4AD5 /* ListOfMeetingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273854266C377300BA4AD5 /* ListOfMeetingsViewModel.swift */; };
 		8027385E266C4D2600BA4AD5 /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027385D266C4D2600BA4AD5 /* MeetingViewModel.swift */; };
+		80273862266C577C00BA4AD5 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273861266C577C00BA4AD5 /* ViewConfiguration.swift */; };
+		80273865266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273864266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		80273850266C2ED500BA4AD5 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		80273854266C377300BA4AD5 /* ListOfMeetingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfMeetingsViewModel.swift; sourceTree = "<group>"; };
 		8027385D266C4D2600BA4AD5 /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
+		80273861266C577C00BA4AD5 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		80273864266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				80273821266C198800BA4AD5 /* Constants.swift */,
+				80273861266C577C00BA4AD5 /* ViewConfiguration.swift */,
 			);
 			name = Commom;
 			sourceTree = "<group>";
@@ -96,8 +101,8 @@
 		80273839266C22B700BA4AD5 /* ListOfMeetings */ = {
 			isa = PBXGroup;
 			children = (
-				8027383A266C22C100BA4AD5 /* ViewController */,
 				8027383B266C22C800BA4AD5 /* Model */,
+				80273868266C5D2B00BA4AD5 /* View */,
 				80273857266C377700BA4AD5 /* ViewModel */,
 			);
 			name = ListOfMeetings;
@@ -122,8 +127,8 @@
 		80273840266C22F600BA4AD5 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
-				80273841266C22FC00BA4AD5 /* ViewController */,
 				80273842266C230100BA4AD5 /* Model */,
+				80273869266C5D3C00BA4AD5 /* View */,
 				80273860266C4F5E00BA4AD5 /* MeetingViewModel */,
 			);
 			name = Meeting;
@@ -169,6 +174,31 @@
 				8027385D266C4D2600BA4AD5 /* MeetingViewModel.swift */,
 			);
 			name = MeetingViewModel;
+			sourceTree = "<group>";
+		};
+		80273867266C5D0F00BA4AD5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				80273864266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		80273868266C5D2B00BA4AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8027383A266C22C100BA4AD5 /* ViewController */,
+				80273867266C5D0F00BA4AD5 /* TableViewCell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80273869266C5D3C00BA4AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80273841266C22FC00BA4AD5 /* ViewController */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +273,14 @@
 				80273813266C140000BA4AD5 /* ListOfMeetingsViewController.swift in Sources */,
 				802737F5266C10F200BA4AD5 /* AppDelegate.swift in Sources */,
 				8027385E266C4D2600BA4AD5 /* MeetingViewModel.swift in Sources */,
+				80273862266C577C00BA4AD5 /* ViewConfiguration.swift in Sources */,
 				8027383D266C22E000BA4AD5 /* MeetingViewController.swift in Sources */,
 				802737F7266C10F200BA4AD5 /* SceneDelegate.swift in Sources */,
 				80273855266C377300BA4AD5 /* ListOfMeetingsViewModel.swift in Sources */,
 				80273832266C218300BA4AD5 /* ListOfMeetingsModel.swift in Sources */,
 				80273822266C198800BA4AD5 /* Constants.swift in Sources */,
 				80273849266C248700BA4AD5 /* Service.swift in Sources */,
+				80273865266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift in Sources */,
 				80273851266C2ED500BA4AD5 /* Request.swift in Sources */,
 				8027384E266C280100BA4AD5 /* API.swift in Sources */,
 				80273836266C223E00BA4AD5 /* MeetingModel.swift in Sources */,

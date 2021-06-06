@@ -7,12 +7,17 @@
 
 import Foundation
 
+protocol ListOfMeetingsViewModelDelegate: AnyObject {
+    func listOfMeetingsViewModelDelegateDidFetchMeetings(_ viewModel: ListOfMeetingsViewModel)
+}
+
 class ListOfMeetingsViewModel {
     
     // MARK: - Properties
     
-    private(set) var listOfMeetings: [ListOfMeetingsModel]? = nil
+    private(set) var listOfMeetings: [ListOfMeetingsModel]? = []
     fileprivate var service: Service!
+    weak var viewDelegate: ListOfMeetingsViewModelDelegate?
     
     // MARK: - Initializer
     
@@ -24,11 +29,13 @@ class ListOfMeetingsViewModel {
     
     func fechListOfMeetings() {
         service.fetchListOfMeetings { [weak self] (response) in
+            guard let self = self else { return }
             switch response {
             case .success(let listOfMeetings):
-                self?.listOfMeetings = listOfMeetings
+                self.listOfMeetings = listOfMeetings
+                self.viewDelegate?.listOfMeetingsViewModelDelegateDidFetchMeetings(self)
             case .failure(_):
-                NSLog("%@", #function)
+                NSLog("FAILURE %@", #function)
             }
         }
     }
