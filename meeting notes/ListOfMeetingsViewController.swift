@@ -72,7 +72,7 @@ extension ListOfMeetingsViewController: UITableViewDataSource {
             cell?.setUpCell(title: viewModel.listOfMeetings?[indexPath.row].title ?? "",
                             description: viewModel.getMeetingDate(from: viewModel.listOfMeetings?[indexPath.row].startAt,
                                                                   to: viewModel.listOfMeetings?[indexPath.row].endAt),
-                            accessoryLabelIsHidden: false)
+                            accessoryLabelIsHidden: viewModel.shoudHideAccessoryLabelAt(at: indexPath.row))
         return cell ?? UITableViewCell()
     }
 }

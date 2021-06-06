@@ -47,6 +47,18 @@ class ListOfMeetingsViewModel {
         return startDate + endDate
     }
     
+    func shoudHideAccessoryLabelAt(at row: Int) -> Bool {
+        let meetingDateString = listOfMeetings?[row].startAt
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = K.DateFormatter.backEnd
+        let currentDate = Date()
+        guard let meetingDate = dateFormatter.date(from: meetingDateString ?? "") else { return true }
+        dateFormatter.dateFormat = K.DateFormatter.meetingDate
+        let currentDay = dateFormatter.string(from: currentDate)
+        let meetingDay = dateFormatter.string(from: meetingDate)
+        return currentDay != meetingDay
+    }
+    
     // MARK: - Private Methods
     
     fileprivate func formatStartDate(_ date: String?) -> String? {
