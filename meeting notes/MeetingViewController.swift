@@ -14,8 +14,8 @@ class MeetingViewController: UIViewController {
     fileprivate lazy var containerView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .white
-        view.layer.cornerRadius = 8
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = K.UI.cornerRadius
+        view.layer.borderWidth = K.UI.borderWidth
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

@@ -10,6 +10,11 @@ import UIKit
 
 struct K {
     
+    struct UI {
+        static let cornerRadius: CGFloat = 8
+        static let borderWidth: CGFloat = 1
+    }
+    
     struct Locale {
         static let us = "en_US"
     }
