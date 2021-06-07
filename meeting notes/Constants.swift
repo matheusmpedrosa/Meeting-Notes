@@ -23,7 +23,7 @@ struct K {
         static let backEnd = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         static let startDate = "EEEE, MMM d, h:mm a"
         static let endDate = " - h:mm a"
-        static let meetingDate = "EEEE"
+        static let meetingDate = "MM-dd-yyyy"
     }
     
     struct Constraint {
