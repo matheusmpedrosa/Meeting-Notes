@@ -25,6 +25,7 @@
 		80273865266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273864266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift */; };
 		8027386D266D290200BA4AD5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027386C266D290200BA4AD5 /* String+Extensions.swift */; };
 		80273870266D2B4600BA4AD5 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */; };
+		80273899266ED06300BA4AD5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273898266ED06300BA4AD5 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		80273864266C5D0A00BA4AD5 /* MeetingListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListItemTableViewCell.swift; sourceTree = "<group>"; };
 		8027386C266D290200BA4AD5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		80273898266ED06300BA4AD5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				80273821266C198800BA4AD5 /* Constants.swift */,
-				80273861266C577C00BA4AD5 /* ViewConfiguration.swift */,
-				8027386C266D290200BA4AD5 /* String+Extensions.swift */,
-				8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */,
+				80273896266ECB9000BA4AD5 /* View */,
+				80273897266ECB9B00BA4AD5 /* Utils */,
 			);
 			name = Commom;
 			sourceTree = "<group>";
@@ -207,6 +208,24 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		80273896266ECB9000BA4AD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80273861266C577C00BA4AD5 /* ViewConfiguration.swift */,
+				80273898266ED06300BA4AD5 /* LoadingView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80273897266ECB9B00BA4AD5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8027386C266D290200BA4AD5 /* String+Extensions.swift */,
+				8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +311,7 @@
 				80273870266D2B4600BA4AD5 /* UIDevice+Extensions.swift in Sources */,
 				8027384E266C280100BA4AD5 /* API.swift in Sources */,
 				80273836266C223E00BA4AD5 /* MeetingModel.swift in Sources */,
+				80273899266ED06300BA4AD5 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

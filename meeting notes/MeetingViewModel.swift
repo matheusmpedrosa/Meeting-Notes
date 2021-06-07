@@ -9,6 +9,7 @@ import Foundation
 
 protocol MeetingViewModelDelegate: AnyObject {
     func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel)
+    func meetingViewModelDelegateIsLoading(_ viewModel: MeetingViewModel, isLoading: Bool)
 }
 
 class MeetingViewModel {
@@ -30,8 +31,10 @@ class MeetingViewModel {
     // MARK: - Public Methods
     
     func fetchMeeting() {
+        viewDelegate?.meetingViewModelDelegateIsLoading(self, isLoading: true)
         service?.fetchSelectedMeeting(meetingId: meetingId, completion: { [weak self] (response) in
             guard let self = self else { return }
+            self.viewDelegate?.meetingViewModelDelegateIsLoading(self, isLoading: false)
             switch response {
             case .success(let meetingModel):
                 self.meetingModel = meetingModel

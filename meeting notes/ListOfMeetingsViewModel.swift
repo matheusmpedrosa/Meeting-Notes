@@ -9,6 +9,7 @@ import Foundation
 
 protocol ListOfMeetingsViewModelDelegate: AnyObject {
     func listOfMeetingsViewModelDelegateDidFetchMeetings(_ viewModel: ListOfMeetingsViewModel)
+    func listOfMeetingsViewModelDelegateIsLoading(_ viewModel: ListOfMeetingsViewModel, isLoading: Bool)
 }
 
 class ListOfMeetingsViewModel {
@@ -28,8 +29,10 @@ class ListOfMeetingsViewModel {
     // MARK: - Public Methods
     
     func fechListOfMeetings() {
+        viewDelegate?.listOfMeetingsViewModelDelegateIsLoading(self, isLoading: true)
         service.fetchListOfMeetings { [weak self] (response) in
             guard let self = self else { return }
+            self.viewDelegate?.listOfMeetingsViewModelDelegateIsLoading(self, isLoading: false)
             switch response {
             case .success(let listOfMeetings):
                 self.listOfMeetings = listOfMeetings

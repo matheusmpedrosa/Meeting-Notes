@@ -28,6 +28,7 @@ class MeetingViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    fileprivate var loadingView = LoadingView(frame: .zero)
     fileprivate var viewModel: MeetingViewModel!
     fileprivate var commomConstraints: [NSLayoutConstraint] = []
     
@@ -52,6 +53,15 @@ class MeetingViewController: UIViewController {
         viewModel.fetchMeeting()
         view.backgroundColor = .systemBackground
     }
+    
+    // MARK: - Private Methods
+    
+    fileprivate func showLoading(_ isLoading: Bool) {
+        DispatchQueue.main.async {
+            self.loadingView.isHidden = !isLoading
+            isLoading ? self.loadingView.startLoading() : self.loadingView.stopLoading()
+        }
+    }
 }
 
 // MARK: - ViewConfiguration
@@ -59,6 +69,7 @@ class MeetingViewController: UIViewController {
 extension MeetingViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(containerView)
+        view.addSubview(loadingView)
         containerView.addSubview(textView)
     }
     
@@ -67,6 +78,11 @@ extension MeetingViewController: ViewConfiguration {
             containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: K.Constraint.top),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: K.Constraint.leading),
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: K.Constraint.trailing),
+            
+            loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
             
             textView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
             textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
@@ -95,5 +111,9 @@ extension MeetingViewController: MeetingViewModelDelegate {
         DispatchQueue.main.async {
             self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString
         }
+    }
+    
+    func meetingViewModelDelegateIsLoading(_ viewModel: MeetingViewModel, isLoading: Bool) {
+        showLoading(isLoading)
     }
 }

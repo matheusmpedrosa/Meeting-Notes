@@ -24,6 +24,7 @@ final class ListOfMeetingsViewController: UIViewController {
         tableView.delegate = self
         return tableView
     }()
+    fileprivate var loadingView = LoadingView(frame: .zero)
     fileprivate var commomConstraints: [NSLayoutConstraint] = []
     
     // MARK: - Initializer
@@ -55,6 +56,13 @@ final class ListOfMeetingsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = K.Color.hugo
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.backgroundColor = .systemBackground
+    }
+    
+    fileprivate func showLoading(_ isLoading: Bool) {
+        DispatchQueue.main.async {
+            self.loadingView.isHidden = !isLoading
+            isLoading ? self.loadingView.startLoading() : self.loadingView.stopLoading()
+        }
     }
 }
 
@@ -97,6 +105,10 @@ extension ListOfMeetingsViewController: ListOfMeetingsViewModelDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    func listOfMeetingsViewModelDelegateIsLoading(_ viewModel: ListOfMeetingsViewModel, isLoading: Bool) {
+        showLoading(isLoading)
+    }
 }
 
 // MARK: - ViewConfiguration
@@ -104,6 +116,7 @@ extension ListOfMeetingsViewController: ListOfMeetingsViewModelDelegate {
 extension ListOfMeetingsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(loadingView)
     }
     
     func setUpConstraints() {
@@ -111,7 +124,12 @@ extension ListOfMeetingsViewController: ViewConfiguration {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo:  view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo:  view.bottomAnchor)
         ]
         
         updateLayoutConstraints()
