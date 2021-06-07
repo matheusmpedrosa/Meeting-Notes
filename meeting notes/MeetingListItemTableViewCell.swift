@@ -64,7 +64,9 @@ class MeetingListItemTableViewCell: UITableViewCell {
         titleLabel.text = title
         titleLabel.accessibilityLabel = title
         descriptionLabel.text = description
-        accessoryLabel.isHidden = accessoryLabelIsHidden
+        if accessoryLabelIsHidden {
+            accessoryLabel.text = nil
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

@@ -84,7 +84,7 @@ extension ListOfMeetingsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let meetingId: String = viewModel.listOfMeetings?[indexPath.row].id ?? ""
         let meetingViewModel: MeetingViewModel = MeetingViewModel(meetingId: meetingId, service: viewModel.service)
-        let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel)
+        let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel, title: viewModel.listOfMeetings?[indexPath.row].title ?? "")
         navigationController?.pushViewController(meetingViewController, animated: true)
     }
 }

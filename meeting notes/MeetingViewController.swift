@@ -33,9 +33,10 @@ class MeetingViewController: UIViewController {
     
     // MARK: - Initializer
     
-    init(viewModel: MeetingViewModel) {
+    init(viewModel: MeetingViewModel, title: String) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        self.title = title
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +50,6 @@ class MeetingViewController: UIViewController {
         configureView()
         viewModel.viewDelegate = self
         viewModel.fetchMeeting()
-        title = viewModel.meetingModel?.title
         view.backgroundColor = .systemBackground
     }
 }
