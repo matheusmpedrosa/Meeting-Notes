@@ -35,6 +35,8 @@ struct K {
         static let leading: CGFloat = 16
         static let trailing: CGFloat = -16
         static let bottom: CGFloat = -16
+        static let verticalSpacing: CGFloat = 8
+        static let negativeVerticalSpacing: CGFloat = -8
     }
     
     struct Text {

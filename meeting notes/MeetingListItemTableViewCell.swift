@@ -93,9 +93,9 @@ extension MeetingListItemTableViewCell: ViewConfiguration {
     func setUpConstraints() {
         commomConstraints = [
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: K.Constraint.leading),
-            titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.topAnchor, constant: K.Constraint.bottom),
+            titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.topAnchor, constant: K.Constraint.negativeVerticalSpacing),
             
-            descriptionLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: K.Constraint.top),
+            descriptionLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: K.Constraint.verticalSpacing),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: K.Constraint.leading),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: K.Constraint.trailing),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: K.Constraint.bottom),
