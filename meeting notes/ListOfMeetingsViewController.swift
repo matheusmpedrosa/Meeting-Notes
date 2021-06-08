@@ -49,6 +49,11 @@ final class ListOfMeetingsViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIAccessibility.post(notification: .screenChanged, argument: navigationController?.navigationBar)
+    }
+    
     // MARK: - Private Methods
     
     fileprivate func setUpUI() {
