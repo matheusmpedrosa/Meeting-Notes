@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 struct K {
-    
     struct UI {
         static let cornerRadius: CGFloat = 8
         static let borderWidth: CGFloat = 1
@@ -55,5 +54,4 @@ struct K {
     struct HTTPMethod {
         static let get: String = "GET"
     }
-    
 }

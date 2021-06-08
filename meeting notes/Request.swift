@@ -8,15 +8,13 @@
 import Foundation
 
 open class Request {
-    
     // MARK: - Properties
     
-//    private let session: URLSession = URLSession.shared
+    private let session: URLSession = URLSession.shared
     
     // MARK: - Fetch Array
     
     func fetch<T: Decodable>(target: API, model: T.Type, completion: @escaping (Result<[T], Error>) -> Void) {
-        let session: URLSession = URLSession.shared
         guard let url: URL = URL(string: target.path) else { return }
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = K.HTTPMethod.get
@@ -36,7 +34,6 @@ open class Request {
     // MARK: - Fetch Object
     
     func fetch<T: Decodable>(target: API, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        let session: URLSession = URLSession.shared
         guard let url: URL = URL(string: target.path) else { return }
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = K.HTTPMethod.get
@@ -52,5 +49,4 @@ open class Request {
             }
         }.resume()
     }
-    
 }

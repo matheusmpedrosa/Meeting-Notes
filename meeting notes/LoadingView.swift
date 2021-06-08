@@ -8,7 +8,6 @@
 import UIKit
 
 class LoadingView: UIView {
-
     // MARK: - Properties
     
     fileprivate lazy var containerView: UIView = {
@@ -45,7 +44,6 @@ class LoadingView: UIView {
     func stopLoading() {
         activityIndicatorView.stopAnimating()
     }
-
 }
 
 // MARK: - ViewConfiguration
@@ -62,7 +60,6 @@ extension LoadingView: ViewConfiguration {
             containerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo:  bottomAnchor),
-            
             activityIndicatorView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ]

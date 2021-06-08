@@ -8,7 +8,6 @@
 import UIKit
 
 final class ListOfMeetingsViewController: UIViewController {
-    
     // MARK: - Properties
     
     fileprivate var viewModel: ListOfMeetingsViewModel!
@@ -19,7 +18,8 @@ final class ListOfMeetingsViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MeetingListItemTableViewCell.self, forCellReuseIdentifier: String(describing: MeetingListItemTableViewCell.self))
+        tableView.register(MeetingListItemTableViewCell.self,
+                           forCellReuseIdentifier: String(describing: MeetingListItemTableViewCell.self))
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -91,7 +91,8 @@ final class ListOfMeetingsViewController: UIViewController {
         }
     }
     
-    @objc fileprivate func fetchListOfMeetings() {
+    @objc
+    fileprivate func fetchListOfMeetings() {
         viewModel.fetchListOfMeetings()
     }
 }
@@ -106,11 +107,14 @@ extension ListOfMeetingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MeetingListItemTableViewCell.self),
                                                  for: indexPath) as? MeetingListItemTableViewCell
-            cell?.configureView()
-            cell?.setUpCell(title: viewModel.listOfMeetings?[indexPath.row].title ?? "",
-                            description: viewModel.getMeetingDate(from: viewModel.listOfMeetings?[indexPath.row].startAt,
-                                                                  to: viewModel.listOfMeetings?[indexPath.row].endAt),
-                            accessoryLabelIsHidden: viewModel.shoudHideAccessoryLabelAt(at: indexPath.row))
+        cell?.configureView()
+        let title = viewModel.listOfMeetings?[indexPath.row].title ?? ""
+        let description = viewModel.getMeetingDate(from: viewModel.listOfMeetings?[indexPath.row].startAt,
+                                                   to: viewModel.listOfMeetings?[indexPath.row].endAt)
+        let isHidden = viewModel.shoudHideAccessoryLabelAt(at: indexPath.row)
+        cell?.setUpCell(title: title,
+                        description: description,
+                        accessoryLabelIsHidden: isHidden)
         return cell ?? UITableViewCell()
     }
 }
@@ -122,8 +126,9 @@ extension ListOfMeetingsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let meetingId: String = viewModel.listOfMeetings?[indexPath.row].id ?? ""
         let meetingViewModel: MeetingViewModel = MeetingViewModel(meetingId: meetingId, service: viewModel.service)
+        let title = viewModel.listOfMeetings?[indexPath.row].title ?? ""
         let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel,
-                                                                                 title: viewModel.listOfMeetings?[indexPath.row].title ?? "")
+                                                                                 title: title)
         navigationController?.pushViewController(meetingViewController, animated: true)
     }
 }

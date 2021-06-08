@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MeetingListItemTableViewCell: UITableViewCell {
-    
+final class MeetingListItemTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     fileprivate lazy var titleLabel: UILabel = {
@@ -92,26 +91,38 @@ extension MeetingListItemTableViewCell: ViewConfiguration {
     
     func setUpConstraints() {
         commomConstraints = [
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: K.Constraint.leading),
-            titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.topAnchor, constant: K.Constraint.negativeVerticalSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                constant: K.Constraint.leading),
+            titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: descriptionLabel.topAnchor,
+                                               constant: K.Constraint.negativeVerticalSpacing),
             
-            descriptionLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: K.Constraint.verticalSpacing),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: K.Constraint.leading),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: K.Constraint.trailing),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: K.Constraint.bottom),
+            descriptionLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor,
+                                                  constant: K.Constraint.verticalSpacing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                      constant: K.Constraint.leading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                       constant: K.Constraint.trailing),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                                     constant: K.Constraint.bottom),
             
-            accessoryLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: K.Constraint.top),
-            accessoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: K.Constraint.trailing)
+            accessoryLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                                constant: K.Constraint.top),
+            accessoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                     constant: K.Constraint.trailing)
         ]
         
         regularConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: K.Constraint.top),
-            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: accessoryLabel.leadingAnchor, constant: K.Constraint.trailing)
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                            constant: K.Constraint.top),
+            titleLabel.trailingAnchor.constraint(greaterThanOrEqualTo: accessoryLabel.leadingAnchor,
+                                                 constant: K.Constraint.trailing)
         ]
 
         largeTextConstraints = [
-            titleLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: accessoryLabel.lastBaselineAnchor, multiplier: 1),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: K.Constraint.trailing)
+            titleLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: accessoryLabel.lastBaselineAnchor,
+                                                      multiplier: 1),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                 constant: K.Constraint.trailing)
         ]
         
         updateLayoutConstraints()

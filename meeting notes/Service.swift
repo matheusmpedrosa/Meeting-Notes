@@ -8,7 +8,6 @@
 import Foundation
 
 final class Service: Request {
-    
     // MARK: - Fetch List Of Meetings
     
     func fetchListOfMeetings(completion: @escaping (Result<[ListOfMeetingsModel], Error>) -> Void) {
@@ -24,5 +23,4 @@ final class Service: Request {
             completion(result)
         }
     }
-    
 }

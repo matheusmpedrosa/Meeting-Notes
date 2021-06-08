@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MeetingViewController: UIViewController {
-    
+final class MeetingViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate lazy var containerView: UIView = {
@@ -89,13 +88,17 @@ class MeetingViewController: UIViewController {
     
     fileprivate func showReloadButton(_ show: Bool) {
         if show {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow.counterclockwise"), style: .plain, target: self, action: #selector(fetchMeeting))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow.counterclockwise"),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(fetchMeeting))
         } else {
             navigationItem.backBarButtonItem = nil
         }
     }
     
-    @objc fileprivate func fetchMeeting() {
+    @objc
+    fileprivate func fetchMeeting() {
         viewModel.fetchMeeting()
     }
 }
@@ -103,7 +106,6 @@ class MeetingViewController: UIViewController {
 // MARK: - MeetingViewModelDelegate
 
 extension MeetingViewController: MeetingViewModelDelegate {
-    
     func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel) {
         DispatchQueue.main.async {
             self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString
@@ -132,9 +134,12 @@ extension MeetingViewController: ViewConfiguration {
     
     func setUpConstraints() {
         commomConstraints = [
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: K.Constraint.top),
-            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: K.Constraint.leading),
-            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: K.Constraint.trailing),
+            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                               constant: K.Constraint.top),
+            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                                   constant: K.Constraint.leading),
+            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                                    constant: K.Constraint.trailing),
             
             loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -152,11 +157,14 @@ extension MeetingViewController: ViewConfiguration {
             textView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ]
         
+        // swiftlint:disable line_length
         if UIDevice.current.hasNotch {
             commomConstraints.append(containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
         } else {
-            commomConstraints.append(containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: K.Constraint.bottom))
+            commomConstraints.append(containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                                           constant: K.Constraint.bottom))
         }
+        // swiftlint:enable line_length
         
         updateLayoutConstraints()
     }

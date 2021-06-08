@@ -1,0 +1,18 @@
+
+Pods/Target Support Files/SwiftLint/SwiftLint.release.xcconfig
+Pods/Target Support Files/SwiftLint/SwiftLint.debug.xcconfig
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes.release.xcconfig
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes.modulemap
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes.debug.xcconfig
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes-umbrella.h
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes-Info.plist
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes-dummy.m
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes-acknowledgements.plist
+Pods/Target Support Files/Pods-meeting notes/Pods-meeting notes-acknowledgements.markdown
+Pods/SwiftLint/swiftlint
+Pods/SwiftLint/LICENSE
+Pods/Pods.xcodeproj/xcuserdata/matheusmpedrosa.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Pods.xcodeproj/xcuserdata/matheusmpedrosa.xcuserdatad/xcschemes/SwiftLint.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/matheusmpedrosa.xcuserdatad/xcschemes/Pods-meeting notes.xcscheme
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Manifest.lock

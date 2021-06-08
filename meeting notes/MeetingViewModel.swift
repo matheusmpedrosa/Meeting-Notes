@@ -13,13 +13,12 @@ protocol MeetingViewModelDelegate: AnyObject {
     func meetingViewModelDelegateError(_ viewModel: MeetingViewModel)
 }
 
-class MeetingViewModel {
-    
+final class MeetingViewModel {
     // MARK: - Properties
     
     fileprivate var meetingId: String!
     fileprivate var service: Service?
-    private(set) var meetingModel: MeetingModel? = nil
+    private(set) var meetingModel: MeetingModel?
     weak var viewDelegate: MeetingViewModelDelegate?
     
     // MARK: - Initializer
@@ -45,5 +44,4 @@ class MeetingViewModel {
             }
         })
     }
-    
 }

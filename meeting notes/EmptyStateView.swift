@@ -13,7 +13,6 @@ enum EmptyStateViewType {
 }
 
 class EmptyStateView: UIView {
-
     // MARK: - Properties
     
     fileprivate lazy var containerView: UIView = {
@@ -75,8 +74,10 @@ extension EmptyStateView: ViewConfiguration {
             containerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo:  bottomAnchor),
             
-            emptyStateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: K.Constraint.leading),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: K.Constraint.trailing),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
+                                                     constant: K.Constraint.leading),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,
+                                                      constant: K.Constraint.trailing),
             emptyStateLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             emptyStateLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ]

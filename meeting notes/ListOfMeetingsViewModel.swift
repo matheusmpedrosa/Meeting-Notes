@@ -14,8 +14,7 @@ protocol ListOfMeetingsViewModelDelegate: AnyObject {
     func listOfMeetingsViewModelDelegateError(_ viewModel: ListOfMeetingsViewModel)
 }
 
-class ListOfMeetingsViewModel {
-    
+final class ListOfMeetingsViewModel {
     // MARK: - Properties
     
     private(set) var listOfMeetings: [ListOfMeetingsModel]? = []
@@ -84,5 +83,4 @@ class ListOfMeetingsViewModel {
         endDateFormatter.dateFormat = K.DateFormatter.endDate
         return endDateFormatter.string(from: date)
     }
-    
 }
