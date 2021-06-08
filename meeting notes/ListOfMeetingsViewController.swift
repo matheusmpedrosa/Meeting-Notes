@@ -54,6 +54,7 @@ final class ListOfMeetingsViewController: UIViewController {
     fileprivate func setUpUI() {
         title = K.Text.listOfMeetingsViewControllerTitle
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.tintColor = K.Color.hugoBlue
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.backgroundColor = .systemBackground
     }

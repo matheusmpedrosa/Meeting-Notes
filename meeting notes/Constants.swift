@@ -26,6 +26,10 @@ struct K {
         static let meetingDate = "MM-dd-yyyy"
     }
     
+    struct Color {
+            static let hugoBlue: UIColor = #colorLiteral(red: 0, green: 0.4117647059, blue: 0.8980392157, alpha: 1)
+    }
+    
     struct Constraint {
         static let top: CGFloat = 16
         static let leading: CGFloat = 16

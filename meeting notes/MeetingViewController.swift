@@ -61,6 +61,7 @@ class MeetingViewController: UIViewController {
     
     fileprivate func setUpUI() {
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.tintColor = K.Color.hugoBlue
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.backgroundColor = .systemBackground
         showEmptyStateView(false)
