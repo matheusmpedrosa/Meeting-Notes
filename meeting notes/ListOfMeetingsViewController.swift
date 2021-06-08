@@ -24,7 +24,8 @@ final class ListOfMeetingsViewController: UIViewController {
         tableView.delegate = self
         return tableView
     }()
-    fileprivate var loadingView = LoadingView(frame: .zero)
+    fileprivate lazy var loadingView = LoadingView(frame: .zero)
+    fileprivate lazy var emptyStateView = EmptyStateView(frame: .zero)
     fileprivate var commomConstraints: [NSLayoutConstraint] = []
     
     // MARK: - Initializer
@@ -44,25 +45,48 @@ final class ListOfMeetingsViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         viewModel.viewDelegate = self
-        viewModel.fechListOfMeetings()
+        fetchListOfMeetings()
         setUpUI()
     }
     
     // MARK: - Private Methods
     
     fileprivate func setUpUI() {
-        title = K.Title.listOfMeetingsViewControllerTitle
+        title = K.Text.listOfMeetingsViewControllerTitle
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.tintColor = K.Color.hugo
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
-    fileprivate func showLoading(_ isLoading: Bool) {
+    
+    fileprivate func showLoadingView(_ isLoading: Bool) {
         DispatchQueue.main.async {
             self.loadingView.isHidden = !isLoading
             isLoading ? self.loadingView.startLoading() : self.loadingView.stopLoading()
         }
+    }
+    
+    fileprivate func showEmptyStateView(_ show: Bool, type: EmptyStateViewType) {
+        DispatchQueue.main.async {
+            self.emptyStateView.setUp(type: type)
+            self.emptyStateView.isHidden = !show
+            self.showReloadButton(show)
+        }
+    }
+    
+    fileprivate func showReloadButton(_ show: Bool) {
+        if show {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow.counterclockwise"),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(fetchListOfMeetings))
+        } else {
+            navigationItem.backBarButtonItem = nil
+        }
+    }
+    
+    @objc fileprivate func fetchListOfMeetings() {
+        viewModel.fetchListOfMeetings()
     }
 }
 
@@ -92,7 +116,8 @@ extension ListOfMeetingsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let meetingId: String = viewModel.listOfMeetings?[indexPath.row].id ?? ""
         let meetingViewModel: MeetingViewModel = MeetingViewModel(meetingId: meetingId, service: viewModel.service)
-        let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel, title: viewModel.listOfMeetings?[indexPath.row].title ?? "")
+        let meetingViewController: MeetingViewController = MeetingViewController(viewModel: meetingViewModel,
+                                                                                 title: viewModel.listOfMeetings?[indexPath.row].title ?? "")
         navigationController?.pushViewController(meetingViewController, animated: true)
     }
 }
@@ -107,7 +132,15 @@ extension ListOfMeetingsViewController: ListOfMeetingsViewModelDelegate {
     }
     
     func listOfMeetingsViewModelDelegateIsLoading(_ viewModel: ListOfMeetingsViewModel, isLoading: Bool) {
-        showLoading(isLoading)
+        showLoadingView(isLoading)
+    }
+    
+    func listOfMeetingsViewModelDelegateIsEmpty(_ viewModel: ListOfMeetingsViewModel, isEmpty: Bool) {
+        showEmptyStateView(isEmpty, type: .emptyList)
+    }
+
+    func listOfMeetingsViewModelDelegateError(_ viewModel: ListOfMeetingsViewModel) {
+        showEmptyStateView(true, type: .error)
     }
 }
 
@@ -117,6 +150,7 @@ extension ListOfMeetingsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(tableView)
         view.addSubview(loadingView)
+        view.addSubview(emptyStateView)
     }
     
     func setUpConstraints() {
@@ -129,7 +163,12 @@ extension ListOfMeetingsViewController: ViewConfiguration {
             loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo:  view.bottomAnchor)
+            loadingView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
+            
+            emptyStateView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            emptyStateView.bottomAnchor.constraint(equalTo:  view.bottomAnchor)
         ]
         
         updateLayoutConstraints()

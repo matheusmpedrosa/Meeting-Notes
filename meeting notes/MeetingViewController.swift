@@ -28,7 +28,8 @@ class MeetingViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    fileprivate var loadingView = LoadingView(frame: .zero)
+    fileprivate lazy var loadingView = LoadingView(frame: .zero)
+    fileprivate lazy var emptyStateView = EmptyStateView(frame: .zero)
     fileprivate var viewModel: MeetingViewModel!
     fileprivate var commomConstraints: [NSLayoutConstraint] = []
     
@@ -50,17 +51,64 @@ class MeetingViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         viewModel.viewDelegate = self
-        viewModel.fetchMeeting()
-        view.backgroundColor = .systemBackground
+        fetchMeeting()
+        setUpUI()
     }
     
     // MARK: - Private Methods
+    
+    fileprivate func setUpUI() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.backgroundColor = .systemBackground
+        showEmptyStateView(false)
+    }
     
     fileprivate func showLoading(_ isLoading: Bool) {
         DispatchQueue.main.async {
             self.loadingView.isHidden = !isLoading
             isLoading ? self.loadingView.startLoading() : self.loadingView.stopLoading()
         }
+    }
+    
+    fileprivate func showEmptyStateView(_ show: Bool = true, type: EmptyStateViewType = .error) {
+        DispatchQueue.main.async {
+            self.emptyStateView.setUp(type: type)
+            self.emptyStateView.isHidden = !show
+            self.showReloadButton(show)
+        }
+    }
+    
+    fileprivate func showReloadButton(_ show: Bool) {
+        if show {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow.counterclockwise"), style: .plain, target: self, action: #selector(fetchMeeting))
+        } else {
+            navigationItem.backBarButtonItem = nil
+        }
+    }
+    
+    @objc fileprivate func fetchMeeting() {
+        viewModel.fetchMeeting()
+    }
+}
+
+// MARK: - MeetingViewModelDelegate
+
+extension MeetingViewController: MeetingViewModelDelegate {
+    
+    func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel) {
+        DispatchQueue.main.async {
+            self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString
+        }
+        self.showEmptyStateView(false)
+    }
+    
+    func meetingViewModelDelegateIsLoading(_ viewModel: MeetingViewModel, isLoading: Bool) {
+        showLoading(isLoading)
+    }
+    
+    func meetingViewModelDelegateError(_ viewModel: MeetingViewModel) {
+        showEmptyStateView()
     }
 }
 
@@ -70,6 +118,7 @@ extension MeetingViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(containerView)
         view.addSubview(loadingView)
+        view.addSubview(emptyStateView)
         containerView.addSubview(textView)
     }
     
@@ -83,6 +132,11 @@ extension MeetingViewController: ViewConfiguration {
             loadingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             loadingView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
+            
+            emptyStateView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            emptyStateView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
             
             textView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
             textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
@@ -101,19 +155,5 @@ extension MeetingViewController: ViewConfiguration {
     
     func updateLayoutConstraints() {
         NSLayoutConstraint.activate(commomConstraints)
-    }
-}
-
-// MARK: - MeetingViewModelDelegate
-
-extension MeetingViewController: MeetingViewModelDelegate {
-    func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel) {
-        DispatchQueue.main.async {
-            self.textView.attributedText = viewModel.meetingModel?.htmlContent?.htmlToAttributedString
-        }
-    }
-    
-    func meetingViewModelDelegateIsLoading(_ viewModel: MeetingViewModel, isLoading: Bool) {
-        showLoading(isLoading)
     }
 }

@@ -11,7 +11,7 @@ class LoadingView: UIView {
 
     // MARK: - Properties
     
-    fileprivate lazy var loadingView: UIView = {
+    fileprivate lazy var containerView: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -52,19 +52,19 @@ class LoadingView: UIView {
 
 extension LoadingView: ViewConfiguration {
     func buildViewHierarchy() {
-        addSubview(loadingView)
-        loadingView.addSubview(activityIndicatorView)
+        addSubview(containerView)
+        containerView.addSubview(activityIndicatorView)
     }
     
     func setUpConstraints() {
         commomConstraints = [
-            loadingView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            loadingView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo:  bottomAnchor),
+            containerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo:  bottomAnchor),
             
-            activityIndicatorView.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor)
+            activityIndicatorView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ]
         
         updateLayoutConstraints()

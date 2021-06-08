@@ -35,9 +35,9 @@ class MeetingListItemTableViewCell: UITableViewCell {
     
     fileprivate lazy var accessoryLabel: UILabel = {
         var label: UILabel = UILabel(frame: .zero)
-        label.text = K.Title.accessoryLabelTitle
+        label.text = K.Text.accessoryLabelText
         label.textAlignment = .right
-        label.accessibilityLabel = K.Title.accessoryLabelTitle
+        label.accessibilityLabel = K.Text.accessoryLabelText
         label.accessibilityTraits = .staticText
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true

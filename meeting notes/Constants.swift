@@ -33,13 +33,12 @@ struct K {
         static let bottom: CGFloat = -16
     }
     
-    struct Title {
+    struct Text {
         static let listOfMeetingsViewControllerTitle: String = "My meetings"
-        static let accessoryLabelTitle: String = "Today"
-    }
-    
-    struct Color {
-        static let hugo: UIColor = #colorLiteral(red: 0, green: 0.4117647059, blue: 0.8980392157, alpha: 1)
+        static let accessoryLabelText: String = "Today"
+        static let emptyListOfMeetingsText: String = "You have no meetings 😕"
+        static let noMeetingData: String = "This meeting has no data 😕"
+        static let somethingWentWrong: String = "Something went wrong ⚠️"
     }
     
     struct API {

@@ -10,6 +10,8 @@ import Foundation
 protocol ListOfMeetingsViewModelDelegate: AnyObject {
     func listOfMeetingsViewModelDelegateDidFetchMeetings(_ viewModel: ListOfMeetingsViewModel)
     func listOfMeetingsViewModelDelegateIsLoading(_ viewModel: ListOfMeetingsViewModel, isLoading: Bool)
+    func listOfMeetingsViewModelDelegateIsEmpty(_ viewModel: ListOfMeetingsViewModel, isEmpty: Bool)
+    func listOfMeetingsViewModelDelegateError(_ viewModel: ListOfMeetingsViewModel)
 }
 
 class ListOfMeetingsViewModel {
@@ -28,7 +30,7 @@ class ListOfMeetingsViewModel {
     
     // MARK: - Public Methods
     
-    func fechListOfMeetings() {
+    func fetchListOfMeetings() {
         viewDelegate?.listOfMeetingsViewModelDelegateIsLoading(self, isLoading: true)
         service.fetchListOfMeetings { [weak self] (response) in
             guard let self = self else { return }
@@ -36,9 +38,10 @@ class ListOfMeetingsViewModel {
             switch response {
             case .success(let listOfMeetings):
                 self.listOfMeetings = listOfMeetings
+                self.viewDelegate?.listOfMeetingsViewModelDelegateIsEmpty(self, isEmpty: listOfMeetings.isEmpty)
                 self.viewDelegate?.listOfMeetingsViewModelDelegateDidFetchMeetings(self)
             case .failure(_):
-                NSLog("FAILURE %@", #function)
+                self.viewDelegate?.listOfMeetingsViewModelDelegateError(self)
             }
         }
     }

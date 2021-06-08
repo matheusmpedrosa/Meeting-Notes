@@ -10,6 +10,7 @@ import Foundation
 protocol MeetingViewModelDelegate: AnyObject {
     func meetingViewModelDelegateDidFetchMeeting(_ viewModel: MeetingViewModel)
     func meetingViewModelDelegateIsLoading(_ viewModel: MeetingViewModel, isLoading: Bool)
+    func meetingViewModelDelegateError(_ viewModel: MeetingViewModel)
 }
 
 class MeetingViewModel {
@@ -40,7 +41,7 @@ class MeetingViewModel {
                 self.meetingModel = meetingModel
                 self.viewDelegate?.meetingViewModelDelegateDidFetchMeeting(self)
             case .failure(_):
-                NSLog("%@", #function)
+                self.viewDelegate?.meetingViewModelDelegateError(self)
             }
         })
     }

@@ -26,6 +26,7 @@
 		8027386D266D290200BA4AD5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027386C266D290200BA4AD5 /* String+Extensions.swift */; };
 		80273870266D2B4600BA4AD5 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */; };
 		80273899266ED06300BA4AD5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273898266ED06300BA4AD5 /* LoadingView.swift */; };
+		8027389D266EE67300BA4AD5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027389C266EE67300BA4AD5 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		8027386C266D290200BA4AD5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		80273898266ED06300BA4AD5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		8027389C266EE67300BA4AD5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				80273861266C577C00BA4AD5 /* ViewConfiguration.swift */,
 				80273898266ED06300BA4AD5 /* LoadingView.swift */,
+				8027389C266EE67300BA4AD5 /* EmptyStateView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8027389D266EE67300BA4AD5 /* EmptyStateView.swift in Sources */,
 				80273813266C140000BA4AD5 /* ListOfMeetingsViewController.swift in Sources */,
 				802737F5266C10F200BA4AD5 /* AppDelegate.swift in Sources */,
 				8027385E266C4D2600BA4AD5 /* MeetingViewModel.swift in Sources */,
