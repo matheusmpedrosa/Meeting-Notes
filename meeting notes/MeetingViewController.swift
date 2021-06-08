@@ -23,6 +23,8 @@ class MeetingViewController: UIViewController {
     fileprivate lazy var textView: UITextView = {
         var view = UITextView(frame: .zero)
         view.backgroundColor = .white
+        view.layer.cornerRadius = K.UI.cornerRadius
+        view.layer.borderWidth = K.UI.borderWidth
         view.textColor = .label
         view.isEditable = false
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -138,10 +140,10 @@ extension MeetingViewController: ViewConfiguration {
             emptyStateView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             emptyStateView.bottomAnchor.constraint(equalTo:  view.bottomAnchor),
             
-            textView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
-            textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
-            textView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4),
-            textView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -4)
+            textView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            textView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            textView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ]
         
         if UIDevice.current.hasNotch {
