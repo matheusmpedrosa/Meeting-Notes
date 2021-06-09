@@ -28,7 +28,23 @@
 		80273870266D2B4600BA4AD5 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */; };
 		80273899266ED06300BA4AD5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273898266ED06300BA4AD5 /* LoadingView.swift */; };
 		8027389D266EE67300BA4AD5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8027389C266EE67300BA4AD5 /* EmptyStateView.swift */; };
+		80AC9FB326703C080061C7D7 /* ListOfMeetingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FB226703C080061C7D7 /* ListOfMeetingsViewModelTests.swift */; };
+		80AC9FC3267046D20061C7D7 /* JSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FC2267046D20061C7D7 /* JSONMock.swift */; };
+		80AC9FC926704D0A0061C7D7 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FC826704D0A0061C7D7 /* MockService.swift */; };
+		80AC9FCE26704DD70061C7D7 /* list_of_meetings_success_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 80AC9FCD26704DD70061C7D7 /* list_of_meetings_success_response.json */; };
+		80AC9FDA26704E330061C7D7 /* meeting_success_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 80AC9FD926704E330061C7D7 /* meeting_success_response.json */; };
+		80AC9FDF267056830061C7D7 /* MeetingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FDE267056830061C7D7 /* MeetingViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		80AC9FA826703BB20061C7D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 802737E9266C10F200BA4AD5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 802737F0266C10F200BA4AD5;
+			remoteInfo = "meeting notes";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B40E48F61228BC0883D2DBD /* Pods-meeting notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meeting notes.debug.xcconfig"; path = "Target Support Files/Pods-meeting notes/Pods-meeting notes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +72,14 @@
 		8027386F266D2B4600BA4AD5 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		80273898266ED06300BA4AD5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8027389C266EE67300BA4AD5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		80AC9FA326703BB20061C7D7 /* meeting notes-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "meeting notes-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80AC9FA726703BB20061C7D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80AC9FB226703C080061C7D7 /* ListOfMeetingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfMeetingsViewModelTests.swift; sourceTree = "<group>"; };
+		80AC9FC2267046D20061C7D7 /* JSONMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMock.swift; sourceTree = "<group>"; };
+		80AC9FC826704D0A0061C7D7 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		80AC9FCD26704DD70061C7D7 /* list_of_meetings_success_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = list_of_meetings_success_response.json; sourceTree = "<group>"; };
+		80AC9FD926704E330061C7D7 /* meeting_success_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meeting_success_response.json; sourceTree = "<group>"; };
+		80AC9FDE267056830061C7D7 /* MeetingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +88,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2273156C19DAAF7D9CEE5FD9 /* Pods_meeting_notes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AC9FA026703BB20061C7D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				802737F3266C10F200BA4AD5 /* meeting notes */,
+				80AC9FA426703BB20061C7D7 /* meeting notes-Tests */,
 				802737F2266C10F200BA4AD5 /* Products */,
 				0C4B43D797043CB81306AA84 /* Pods */,
 				FA031D05A2C92E6D5B7F5416 /* Frameworks */,
@@ -93,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				802737F1266C10F200BA4AD5 /* meeting notes.app */,
+				80AC9FA326703BB20061C7D7 /* meeting notes-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +278,52 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		80AC9FA426703BB20061C7D7 /* meeting notes-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				80AC9FC1267046C40061C7D7 /* Mock */,
+				80AC9FB126703BEC0061C7D7 /* ListOfMeetings */,
+				80AC9FDD267056320061C7D7 /* Meeting */,
+				80AC9FA726703BB20061C7D7 /* Info.plist */,
+			);
+			path = "meeting notes-Tests";
+			sourceTree = "<group>";
+		};
+		80AC9FB126703BEC0061C7D7 /* ListOfMeetings */ = {
+			isa = PBXGroup;
+			children = (
+				80AC9FB226703C080061C7D7 /* ListOfMeetingsViewModelTests.swift */,
+			);
+			name = ListOfMeetings;
+			sourceTree = "<group>";
+		};
+		80AC9FC1267046C40061C7D7 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				80AC9FCC26704DB50061C7D7 /* Responses */,
+				80AC9FC2267046D20061C7D7 /* JSONMock.swift */,
+				80AC9FC826704D0A0061C7D7 /* MockService.swift */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		80AC9FCC26704DB50061C7D7 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				80AC9FCD26704DD70061C7D7 /* list_of_meetings_success_response.json */,
+				80AC9FD926704E330061C7D7 /* meeting_success_response.json */,
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
+		80AC9FDD267056320061C7D7 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				80AC9FDE267056830061C7D7 /* MeetingViewModelTests.swift */,
+			);
+			name = Meeting;
+			sourceTree = "<group>";
+		};
 		FA031D05A2C92E6D5B7F5416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +354,24 @@
 			productReference = 802737F1266C10F200BA4AD5 /* meeting notes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		80AC9FA226703BB20061C7D7 /* meeting notes-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80AC9FAC26703BB20061C7D7 /* Build configuration list for PBXNativeTarget "meeting notes-Tests" */;
+			buildPhases = (
+				80AC9F9F26703BB20061C7D7 /* Sources */,
+				80AC9FA026703BB20061C7D7 /* Frameworks */,
+				80AC9FA126703BB20061C7D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80AC9FA926703BB20061C7D7 /* PBXTargetDependency */,
+			);
+			name = "meeting notes-Tests";
+			productName = "meeting notes-Tests";
+			productReference = 80AC9FA326703BB20061C7D7 /* meeting notes-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -286,6 +383,11 @@
 				TargetAttributes = {
 					802737F0266C10F200BA4AD5 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					80AC9FA226703BB20061C7D7 = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+						TestTargetID = 802737F0266C10F200BA4AD5;
 					};
 				};
 			};
@@ -303,6 +405,7 @@
 			projectRoot = "";
 			targets = (
 				802737F0266C10F200BA4AD5 /* meeting notes */,
+				80AC9FA226703BB20061C7D7 /* meeting notes-Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +417,15 @@
 			files = (
 				80273801266C10F200BA4AD5 /* LaunchScreen.storyboard in Resources */,
 				802737FE266C10F200BA4AD5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AC9FA126703BB20061C7D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AC9FDA26704E330061C7D7 /* meeting_success_response.json in Resources */,
+				80AC9FCE26704DD70061C7D7 /* list_of_meetings_success_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +499,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		80AC9F9F26703BB20061C7D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AC9FB326703C080061C7D7 /* ListOfMeetingsViewModelTests.swift in Sources */,
+				80AC9FC3267046D20061C7D7 /* JSONMock.swift in Sources */,
+				80AC9FDF267056830061C7D7 /* MeetingViewModelTests.swift in Sources */,
+				80AC9FC926704D0A0061C7D7 /* MockService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80AC9FA926703BB20061C7D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 802737F0266C10F200BA4AD5 /* meeting notes */;
+			targetProxy = 80AC9FA826703BB20061C7D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		802737FF266C10F200BA4AD5 /* LaunchScreen.storyboard */ = {
@@ -557,6 +688,49 @@
 			};
 			name = Release;
 		};
+		80AC9FAA26703BB20061C7D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R95CT9ATA8;
+				INFOPLIST_FILE = "meeting notes-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "matheusmpedrosa.meeting-notes-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meeting notes.app/meeting notes";
+			};
+			name = Debug;
+		};
+		80AC9FAB26703BB20061C7D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R95CT9ATA8;
+				INFOPLIST_FILE = "meeting notes-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "matheusmpedrosa.meeting-notes-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/meeting notes.app/meeting notes";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -574,6 +748,15 @@
 			buildConfigurations = (
 				80273806266C10F200BA4AD5 /* Debug */,
 				80273807266C10F200BA4AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80AC9FAC26703BB20061C7D7 /* Build configuration list for PBXNativeTarget "meeting notes-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80AC9FAA26703BB20061C7D7 /* Debug */,
+				80AC9FAB26703BB20061C7D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

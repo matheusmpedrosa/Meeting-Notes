@@ -18,12 +18,12 @@ final class ListOfMeetingsViewModel {
     // MARK: - Properties
     
     private(set) var listOfMeetings: [ListOfMeetingsModel]? = []
-    private(set) var service: Service!
+    private(set) var service: ServiceProtocol!
     weak var viewDelegate: ListOfMeetingsViewModelDelegate?
     
     // MARK: - Initializer
     
-    init(service: Service) {
+    init(service: ServiceProtocol) {
         self.service = service
     }
     

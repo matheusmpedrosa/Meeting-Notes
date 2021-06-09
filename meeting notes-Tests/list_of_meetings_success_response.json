@@ -1,0 +1,50 @@
+[
+  {
+    "id": "8626ad29-b8f7-4347-adae-2a0cd4b8e866",
+    "startAt": "2021-04-12T22:00:00.000Z",
+    "endAt": "2021-04-12T23:00:00.000Z",
+    "title": "Project workshop"
+  },
+  {
+    "id": "fb681b87-93fd-4eb2-8057-e59f35c3a783",
+    "startAt": "2021-04-13T21:00:00.000Z",
+    "endAt": "2021-04-13T22:00:00.000Z",
+    "title": "QA feedback"
+  },
+  {
+    "id": "0e36c45a-133e-4fdb-9814-99ba55f34328",
+    "startAt": "2021-04-14T23:00:00.000Z",
+    "endAt": "2021-04-14T00:00:00.000Z",
+    "title": "Monthly team meeting"
+  },
+  {
+    "id": "37fa0210-bc11-423a-b53c-1925bff0c9b8",
+    "startAt": "2021-04-15T18:00:00.000Z",
+    "endAt": "2021-04-15T19:00:00.000Z",
+    "title": "Design review"
+  },
+  {
+    "id": "a4ef29cd-e828-4508-a5ca-bafd4d6d7045",
+    "startAt": "2021-04-16T23:00:00.000Z",
+    "endAt": "2021-04-16T00:00:00.000Z",
+    "title": "Content planning"
+  },
+  {
+    "id": "48a7ac5a-36c9-4644-9abc-96dca1cd6c21",
+    "startAt": "2021-04-19T23:00:00.000Z",
+    "endAt": "2021-04-19T00:00:00.000Z",
+    "title": "One-on-One"
+  },
+  {
+    "id": "cdf824a4-8254-4b61-8a8c-b20ee3cc4d7c",
+    "startAt": "2021-04-20T19:00:00.000Z",
+    "endAt": "2021-04-20T20:00:00.000Z",
+    "title": "Feature launch"
+  },
+  {
+    "id": "827ee293-2892-40bc-94f2-5d7fcb7dbf19",
+    "startAt": "2021-04-20T21:00:00.000Z",
+    "endAt": "2021-04-20T22:00:00.000Z",
+    "title": "Spec review"
+  }
+]

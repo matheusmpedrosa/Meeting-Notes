@@ -17,13 +17,13 @@ final class MeetingViewModel {
     // MARK: - Properties
     
     fileprivate var meetingId: String!
-    fileprivate var service: Service?
+    fileprivate var service: ServiceProtocol?
     private(set) var meetingModel: MeetingModel?
     weak var viewDelegate: MeetingViewModelDelegate?
     
     // MARK: - Initializer
     
-    init(meetingId: String, service: Service) {
+    init(meetingId: String, service: ServiceProtocol) {
         self.meetingId = meetingId
         self.service = service
     }
