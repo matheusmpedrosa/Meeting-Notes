@@ -160,8 +160,8 @@ extension ListOfMeetingsViewController: ListOfMeetingsViewModelDelegate {
 extension ListOfMeetingsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(tableView)
-        view.addSubview(loadingView)
         view.addSubview(emptyStateView)
+        view.addSubview(loadingView)
     }
     
     func setUpConstraints() {
